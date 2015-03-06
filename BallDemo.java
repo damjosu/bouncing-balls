@@ -54,19 +54,15 @@ public class BallDemo
             balls.add(new BouncingBall(ejex, ejey, radio, new Color(rColor,gColor,bColor), ground, myCanvas));
             balls.get(i).draw();
         }
-        BouncingBall ball = new BouncingBall(50, 50, 16, Color.BLUE, ground, myCanvas);
-        ball.draw();
-        BouncingBall ball2 = new BouncingBall(70, 80, 20, Color.RED, ground, myCanvas);
-        ball2.draw();
-
-        // make them bounce
+         // make them bounce
         boolean finished =  false;
         while(!finished) {
-            myCanvas.wait(50);           // small delay
-            ball.move();
-            ball2.move();
+            myCanvas.wait(50);// small delay
+            for (int i = 0; i < numberOfBalls; i++) {
+                balls.get(i).move();
+            }
             // stop once ball has travelled a certain distance on x axis
-            if(ball.getXPosition() >= 550 || ball2.getXPosition() >= 550) {
+            if(balls.get(0).getXPosition() >= 550) {
                 finished = true;
             }
         }
