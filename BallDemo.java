@@ -59,12 +59,17 @@ public class BallDemo
         while(!finished) {
             myCanvas.wait(50);// small delay
             for (int i = 0; i < numberOfBalls; i++) {
-                balls.get(i).move();
+                balls.get(i).move(); 
+                if(balls.get(i).getXPosition() >= 550) {
+                    finished = true;
+                }
             }
             // stop once ball has travelled a certain distance on x axis
-            if(balls.get(0).getXPosition() >= 550) {
-                finished = true;
-            }
         }
+    }
+    
+    public void boxBounce()
+    {
+    
     }
 }
